@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="WatchJam Privacy Policy explains how the app handles information."
+    />
+    <title>WatchJam Privacy Policy</title>
+    <link rel="stylesheet" href="assets/site.css" />
+    <script defer src="assets/site.js"></script>
+  </head>
+  <body data-page="privacy">
+<header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="WatchJam home"
+          ><span class="brand-mark" aria-hidden="true">WJ</span
+          ><span class="brand-copy"
+            ><strong>WatchJam</strong><small>legal &amp; support</small></span
+          ></a
+        ><button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span class="sr-only">Toggle navigation</span
+          ><span class="menu-icon" aria-hidden="true"
+            ><i></i><i></i><i></i
+          ></span>
+        </button>
+        <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+          <a data-nav="privacy" href="privacy.html">Privacy</a
+          ><a data-nav="terms" href="terms.html">Terms</a
+          ><a data-nav="support" href="support.html">Support</a>
+        </nav>
+      </div>
+    </header>
+    <main class="container legal-layout">
+      <aside class="legal-rail">
+        <p class="eyebrow">Version 1.0</p>
+        <h1>Privacy policy</h1>
+        <p class="rail-note">
+          This Privacy Policy describes WatchJam app features and data practices.
+        </p>
+        <div class="rail-links">
+          <a href="#summary">Summary</a><a href="#data">Data we handle</a
+          ><a href="#youtube-search">YouTube search</a
+          ><a href="#sharing">Sharing</a><a href="#retention">Retention</a
+          ><a href="#choices">Your choices</a><a href="#contact">Contact</a>
+        </div>
+      </aside>
+      <article class="legal-document">
+        <div class="document-meta">
+          <span class="status-pill">VERSION 1.0</span><span>Effective date: November 13, 2026</span>
+        </div>
+<section id="summary">
+          <h2>1. What this policy covers</h2>
+          <p>
+            This Privacy Policy describes WatchJam's app features and data practices. The
+            app is built around invite-based rooms, synchronized playback,
+            profiles, social features, chat, moderation controls, and media
+            metadata. The disclosures below distinguish owner-confirmed settings
+            from implementation details that have not been verified in the
+            production release.
+          </p>
+          <p>
+            WatchJam uses Supabase Auth, PostgreSQL, and Realtime. The owner has
+            confirmed that the configured production Supabase project is hosted
+            in Singapore (<code>ap-southeast-1</code>) on the Free plan, with
+            email/password and Google sign-in, new sign-ups, and email
+            confirmation enabled; anonymous sign-in and manual account linking
+            are disabled. The exact production project-to-build mapping, enabled
+            Storage services, OAuth scopes, subprocessors, processing outside
+            Singapore, production logs, backups, and provider retention have not
+            been established by this review. This policy does not claim that all
+            processing occurs in Singapore. The app includes an official YouTube
+            IFrame player path, but production YouTube availability is not
+            verified here.
+          </p>
+          <h3>Age eligibility</h3>
+          <p>
+            WatchJam is strictly for people aged 18 and older. Users under 18
+            are not permitted to use WatchJam. The local app source includes an
+            18+ self-attestation gate before authentication and app routes are
+            initialized. It stores only a local eligibility marker; it does not
+            collect or store a date of birth or identity document for this check.
+            This is self-attestation, not authoritative age verification.
+          </p>
+        </section>
+        <section id="data">
+          <h2>2. Information the current app can handle</h2>
+          <h3>Account and identity</h3>
+          <ul>
+            <li>
+              Email address and authentication credentials are handled through
+              Supabase Auth when you use email/password sign-in or sign-up.
+            </li>
+            <li>
+              Google sign-in uses an OAuth flow. Information returned by Google,
+              such as account email and provider profile fields made available
+              to the app, can be used to establish the WatchJam account.
+            </li>
+            <li>
+              The first-release sign-in flow offers email/password and Google
+              sign-in. The owner-confirmed production Auth configuration has
+              anonymous sign-in and manual account linking disabled. A guest
+              login path in source is not offered through the normal first-release
+              flow; no guest identity or guest cleanup period is claimed.
+            </li>
+            <li>
+              A profile can contain a username, display name, avatar URL, and
+              bio, plus server timestamps.
+            </li>
+          </ul>
+          <h3>Room and social activity</h3>
+          <ul>
+            <li>
+              Rooms can include a name, room code, host, visibility, lifecycle
+              status, chat/voice settings, voting mode, and timestamps.
+            </li>
+            <li>
+              Membership and invites can include a user, role, membership state,
+              join/leave/last-seen timestamps, invite expiry, usage limits,
+              revocation state, and a protected invite token hash.
+            </li>
+            <li>
+              Friends, blocks, and moderation reports are represented as
+              account-scoped records. An authenticated member can report a user
+              or visible room message in the app. Reports can include a subject
+              type, category, optional details, status, and timestamps.
+            </li>
+            <li>
+              Room chat messages can include the sender, message body, room, a
+              one-way duplicate-detection fingerprint, and creation time. Room
+              access and safety rules limit who can read or send them.
+            </li>
+            <li>
+              Block controls can hide account-scoped social and room results from
+              the blocker. Room hosts and moderators can use server-authorized
+              safety controls such as join locks, member removal, bans, and
+              invite rotation.
+            </li>
+            <li>
+              Queue and playback state can include provider and media
+              identifiers, titles/subtitles, duration, position, rate, playback
+              status, votes, controller/member identifiers, and timestamps. The
+              audited database contract does not store media bytes.
+            </li>
+            <li>
+              Private room Realtime channels can carry bounded
+              playback/lifecycle hints and coarse presence such as user ID,
+              display name, and a state like joining, ready, watching, or
+              reconnecting.
+            </li>
+          </ul>
+          <h3>Media metadata</h3>
+          <ul>
+            <li>
+              The checked-in app contains an official YouTube IFrame player
+              path. The default feature flag leaves it disabled, and production
+              enablement is not verified here. If enabled, YouTube may receive
+              information as part of serving its player under its own privacy
+              policy.
+            </li>
+            <li>
+              For user-owned/direct media, the persistent database contract
+              stores title, credential-free HTTPS source URI, MIME type,
+              duration, and timestamps. Local device-file URIs remain local to
+              the device in the audited implementation; the app does not upload
+              media bytes through this path.
+            </li>
+          </ul>
+          <h3 id="youtube-search">YouTube search and recent searches</h3>
+          <p>
+            When YouTube search is available in your build and you submit a
+            search, WatchJam sends the search phrase and selected category in an
+            authenticated request to its configured backend. The backend forwards
+            the query to Google's YouTube Data API and returns video identifiers,
+            titles, channel names, thumbnail URLs, and duration metadata where
+            available. Google receives the search query and may process it under
+            its own policies. See
+            <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.
+            If you select or queue a result, its video identifier and some
+            metadata may be stored with room playback or queue data as described
+            above.
+          </p>
+          <p>
+            The reviewed app source separates Privacy Policy agreement from
+            Terms acceptance. For a signed-in persistent account, it checks the
+            server-controlled active published policy version and URL and
+            requires a separate affirmative agreement before exposing
+            authenticated app routes. Signing in, viewing the notice, or
+            accepting the Terms does not record Privacy Policy consent. The
+            YouTube search function checks current Terms and Privacy Policy
+            consent before contacting Google, and protected room and moderation
+            RPCs use the shared legal-acceptance boundary. This describes source-level behavior only. The migration has not been
+            deployed to production, and an active policy version and URL have not
+            been configured in the production database. Production consent
+            behavior has not been verified.
+          </p>
+          <p>
+            The reviewed source includes a server worker intended to refresh
+            stored YouTube API metadata by day 25 or remove unavailable metadata
+            before the 30-calendar-day temporary-storage limit, while preserving
+            separate WatchJam room and queue coordination data. This is a
+            source-level design only. The production migration, worker schedule,
+            alerts, gateway/Edge Function logs, Google's request-log handling,
+            and provider backup expiry have not been verified. This policy does
+            not promise that refresh or deletion is active in production or that
+            logs and backups contain no older copies.
+          </p>
+          <p>
+            The current search-function source does not explicitly write the
+            query phrase to WatchJam's application database. That source-level
+            fact does not establish what production infrastructure logs or
+            retains.
+          </p>
+          <p>
+            The app stores up to 12 recent in-app YouTube search phrases per
+            signed-in account in device-local SecureStore. You can remove an
+            individual phrase or clear the recent-search list in the search
+            screen. When an authenticated account-deletion request is recorded,
+            the app attempts to remove that account's local YouTube search
+            history; if local removal fails, the app shows a retry action. This
+            local cleanup does not itself delete the WatchJam account or confirm
+            that server-side deletion is complete.
+          </p>
+          <h3>Web Browser activity and website storage</h3>
+          <p>
+            The Android app includes a built-in Web Browser. It saves page URLs
+            and titles, including URL query parameters where present, for up to 60
+            recent history entries and up to 40
+            bookmarks in an app-managed document file on the device. Search
+            phrases entered in the address bar are sent to Google Search and
+            may appear in the resulting URL saved in local
+            history. The current Browser lets you clear local history and
+            remove bookmarks. These lists are not sent to WatchJam's room
+            database by the current Browser implementation.
+          </p>
+          <p>
+            The Android WebView configuration disables third-party cookies and
+            DOM storage. The app does not currently provide controls to inspect
+            or clear website cookies or all site data, and it does not claim
+            that first-party cookies or other website state are disabled or
+            removed when local history is cleared or an account-deletion
+            request is made. Websites you visit may receive connection and page
+            request information and handle information you submit under their
+            own terms and privacy notices. Their practices are separate from
+            WatchJam's local history and bookmark lists.
+          </p>
+<h3>Device and diagnostic information</h3>
+          <ul>
+            <li>
+              The checked-in Android configuration requests
+              <code>INTERNET</code> and blocks notification, storage, overlay,
+              and vibration permissions. The audited build does not implement
+              microphone capture, location collection, camera capture, or
+              contacts import.
+            </li>
+            <li>
+              Push notification delivery is unconfigured. Notification
+              preferences are local boolean settings with opt-in defaults; the
+              current delivery adapter does not request permission or register a
+              push token.
+            </li>
+            <li>
+              The default telemetry sink is a no-op. The optional in-memory
+              diagnostic sink is bounded and process-local. The audited code
+              does not wire an analytics exporter, advertising SDK, or durable
+              telemetry queue.
+            </li>
+            <li>
+              The app stores a local 18+ eligibility marker and a versioned
+              local Terms-acceptance marker on the device. These markers do not
+              contain a date of birth or identity document. For a persistent
+              authenticated session, the prepared server boundary also records
+              the accepted Terms version, timestamp, and source; that record is
+              currently verified only in disposable local staging and is not a
+              claim that production enforcement is deployed.
+            </li>
+          </ul>
+        </section>
+        <section id="use">
+          <h2>3. Why the app uses this information</h2>
+          <p>
+            The current code uses the information above to authenticate a
+            session, show and edit a profile, create or join rooms, enforce
+            membership and moderation rules, synchronize playback, show room
+            presence, manage queues and chat, support friends and blocks, submit
+            reports, and display media through an approved player path.
+          </p>
+        </section>
+        <section id="sharing">
+          <h2>4. When information is shared</h2>
+          <ul>
+            <li>
+              <strong>Supabase.</strong> WatchJam uses Supabase for
+              authentication, database, and Realtime. The owner has confirmed
+              the configured project region is Singapore
+              (<code>ap-southeast-1</code>); this does not mean all processing
+              occurs there. Production Storage, subprocessors, cross-border
+              routing, logs, and backup settings have not been established by
+              this review.
+            </li>
+            <li>
+              <strong>Google.</strong> Google participates in sign-in when you
+              choose Google sign-in and receives information needed for that
+              flow. Exact production OAuth scopes and provider-side retention
+              have not been verified here.
+            </li>
+            <li>
+              <strong>YouTube.</strong> YouTube may process search requests and
+              player-related information when those features are enabled and
+              used. Search queries and returned metadata are described in the
+              YouTube section above. Production enablement and infrastructure
+              logging have not been verified.
+            </li>
+            <li>
+              <strong>Other room members.</strong> People in a room may see room
+              information made available to members, such as display names,
+              coarse presence, chat, queue metadata, and playback state. Access
+              is intended to be controlled by room visibility and membership
+              rules.
+            </li>
+            <li>
+              <strong>Safety operations.</strong> The app source includes report,
+              block, and room-safety controls. Production review operations and
+              staffing have not been verified; this policy does not promise a
+              response time or outcome.
+            </li>
+          </ul>
+          <p>
+            The advertising, analytics, and paid-feature configuration of a future
+            production build has not been verified. This policy does not claim
+            that those features are present or absent; if they are introduced,
+            this policy should be updated before they are offered.
+          </p>
+        </section>
+        <section id="security">
+          <h2>5. Security and storage choices</h2>
+          <p>
+            The Android app source uses an operating-system-backed SecureStore
+            adapter for native authentication sessions. The web adapter keeps
+            session state in process memory. Row-level security, authenticated
+            RPCs, and room membership checks are part of the database source
+            contract; this does not establish the production service's deployed
+            configuration or operating controls.
+          </p>
+          <p>
+            No security measure is perfect. Production access controls, incident
+            response, provider logging, and backup procedures have not been
+            verified for the production environment.
+          </p>
+          <h3>Account deletion status</h3>
+          <p>
+            The reviewed app source contains an in-app account-deletion request
+            and status interface. That interface alone does not establish that a
+            request reaches or is fulfilled by the production service; production
+            request processing and deletion fulfillment have not been verified.
+          </p>
+          <p>
+            There is no operational external account-deletion service at this
+            time. This website does not accept or complete deletion
+            requests.
+          </p>
+        </section>
+        <section id="retention">
+          <h2>6. Retention</h2>
+          <div class="callout callout-warning">
+            <strong>Future targets; not yet operational.</strong> If a verified
+            production deletion process is later deployed, the approved targets
+            are acknowledgment of verified requests within 72 hours and ordinary
+            completion aimed within seven days. An approved legitimate exception
+            may use a standard 30-day processing target. Cancellation is available
+            until irreversible processing begins. These are future targets, not
+            active service guarantees; no functioning production deletion route
+            is available now.
+          </div>
+          <p>
+            The approved future deletion scope is intended to remove the Auth
+            identity, profile, and associated account-owned data. User-hosted
+            rooms may be closed after a clear warning, and room-owned data may
+            be removed as part of the request. Unnecessary ended-room records
+            are targeted for removal within 30 days. Support correspondence is
+            targeted for 90 days after ticket closure unless an active case
+            requires longer retention. Necessary security/moderation records
+            and minimal deletion audit records may be retained for up to 12
+            months, and legally required records may be retained for the period
+            required by applicable law. These are approved future policy
+            targets, not current production capabilities.
+          </p>
+          <p>
+            Routine backup expiry is a future target of 30 days, subject to the
+            provider's actual backup and restore capabilities. The production
+            backup schedule has not been verified, and this is not an active
+            system guarantee.
+          </p>
+        </section>
+        <section id="choices">
+          <h2>7. Your choices</h2>
+          <ul>
+            <li>You can sign out of the current session.</li>
+            <li>
+              You can edit the profile fields exposed by the app, where the
+              account is configured.
+            </li>
+            <li>
+              Guest or anonymous login is not available in the first release.
+              Joining a Jam requires an email/password or Google account.
+            </li>
+            <li>
+              Authenticated room members can use in-app controls to report a
+              user or visible message and to block another account. Guest or
+              anonymous identities are not part of the first release.
+            </li>
+            <li>
+              <strong
+                >An authenticated deletion request/status path and worker
+                design are prepared locally, but account deletion is not live
+                for public users or in production.</strong
+              > The disposable local staging workflow is not a production
+              deployment and does not make the deletion URL a completed
+              deletion service. The separate account-deletion page is excluded from this phased package. Production deletion is not operational.
+            </li>
+          </ul>
+        </section>
+        <section id="contact">
+          <h2>8. Contact</h2>
+          <div class="callout callout-warning">
+            <strong>Operator:</strong> Aman Sharma (individual). The Google Play
+            publisher account is <code>amansharma.it3</code>.
+            <strong>Public contact:</strong>
+            <a href="mailto:watchjam.support@gmail.com">watchjam.support@gmail.com</a>.
+            Use this address for general support and privacy questions. It is not
+            an operational account-deletion request or fulfillment service.
+          </div>
+          <p>
+            Use <a href="mailto:watchjam.support@gmail.com">watchjam.support@gmail.com</a>
+            or the <a href="support.html">Support page</a> for general privacy
+            and support questions. This contact does not initiate account
+            deletion. Do not send passwords, access tokens, invite tokens, or
+            private media links.
+          </p>
+        </section>
+        <section>
+          <h2>9. Changes to this notice</h2>
+          <p>
+            Version 1.0 is effective November 13, 2026.
+            For a material change, WatchJam will post the revised policy with a
+            new version and effective date and, where reasonably practicable,
+            provide additional notice through the app or the approved support
+            channel. Continued use after the new effective date is subject to
+            the revised policy, except where applicable law requires a different
+            process.
+          </p>
+        </section>
+        <div class="document-end">
+          <span>End of Privacy Policy</span
+          ><a href="index.html">Back to WatchJam home →</a>
+        </div>
+      </article>
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <a class="footer-brand" href="index.html">WatchJam</a>
+          <p>WatchJam legal and support information.</p>
+        </div>
+        <nav aria-label="Footer navigation">
+          <a href="privacy.html">Privacy</a
+          ><a href="terms.html">Terms</a><a href="support.html">Support</a>
+        </nav>
+        <p class="footer-meta">© <span data-year></span> WatchJam</p>
+      </div>
+    </footer>
+  </body>
+</html>
